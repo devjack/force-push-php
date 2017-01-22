@@ -1,11 +1,17 @@
 <?php
 
-$url = parse_url(getenv("DATABASE_URL"));
-$host = $url["host"] ?? env('DB_HOST');
-$port = $url['port'] ?? env('DB_PORT') ?? '27017';
-$username = $url["user"] ?? env('DB_USER');
-$password = $url["pass"] ?? env('DB_PASS');
-$database = substr($url["path"], 1) ?? env('DB_DATABASE');
+$db_url = parse_url(getenv("DATABASE_URL"));
+$host = $db_url["host"] ?? env('DB_HOST');
+$port = $db_url['port'] ?? env('DB_PORT') ?? '27017';
+$username = $db_url["user"] ?? env('DB_USER');
+$password = $db_url["pass"] ?? env('DB_PASS');
+$database = substr($db_url["path"], 1) ?? env('DB_DATABASE');
+//
+//var_dump($host);
+//var_dump($port);
+//var_dump($username);
+//var_dump($password);
+//var_dump($database);
 
 return [
 
@@ -54,11 +60,12 @@ return [
     'connections' => [
         'mongodb' => [
             'driver'   => 'mongodb',
-            'host'     => env('DB_HOST', $host),
-            'port'     => env('DB_PORT', $port),
-            'database' => env('DB_DATABASE', $database),
-            'username' => env('DB_USERNAME', $username),
-            'password' => env('DB_PASSWORD', $password),
+            'dsn'      => getenv("DATABASE_URL"),
+            'host'     => $host, //env('DB_HOST', $host),
+            'port'     => $port, //env('DB_PORT', $port),
+            'database' => $database, //env('DB_DATABASE', $database),
+            'username' => $username, //env('DB_USERNAME', $username),
+            'password' => $password, //env('DB_PASSWORD', $password),
             'options' => [
                 //'database' => 'admin' // sets the authentication database required by mongo 3
             ]
