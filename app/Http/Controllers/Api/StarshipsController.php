@@ -7,10 +7,10 @@ use Illuminate\Http\JsonResponse;
 use Spatie\Fractal\Fractal;
 use App\Http\Controllers\Controller;
 
-use App\Transformers\FilmTransformer;
-use App\Film;
+use App\Transformers\StarshipTransformer;
+use App\Starship;
 
-class FilmsController extends Controller
+class StarshipsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,16 +20,16 @@ class FilmsController extends Controller
      */
     public function index(Request $request)
     {
-        $films = Film::get();
+        $films = Starship::get();
 
-        return Fractal::create($films, new FilmTransformer())
+        return Fractal::create($films, new StarshipTransformer())
             ->respond(function(JsonResponse $response) {
-            $response
-                ->setStatusCode(200)
-                ->withHeaders([
-                    // todo: push stuff here.
-                ]);
-        });
+                $response
+                    ->setStatusCode(200)
+                    ->withHeaders([
+                        // todo: push stuff here.
+                    ]);
+            });
     }
 
     /**
@@ -41,9 +41,9 @@ class FilmsController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $films = Film::find($id);
+        $films = Starship::find($id);
 
-        return Fractal::create($films, new FilmTransformer())
+        return Fractal::create($films, new StarshipTransformer())
             ->respond(function(JsonResponse $response) {
                 $response
                     ->setStatusCode(200)

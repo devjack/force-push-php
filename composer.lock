@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "589dd0f8ca909ef4d86f72bfdf2432ef",
-    "content-hash": "239c86434b2c52f2facdbb79ba7e73c2",
+    "hash": "99c2eb598c2d9d9fad6dc41d6bb7b80c",
+    "content-hash": "80667cf17191d310e7d0cd711f001a7a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1315,28 +1315,78 @@
             "time": "2016-11-22 19:21:44"
         },
         {
-            "name": "spatie/laravel-fractal",
-            "version": "2.1.0",
+            "name": "spatie/fractalistic",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/spatie/laravel-fractal.git",
-                "reference": "31c9e41aa7e7d878b7268f37917e094ef49ea9f2"
+                "url": "https://github.com/spatie/fractalistic.git",
+                "reference": "59a2e7dfbd49e58b7de7d5621c1e7365786809f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-fractal/zipball/31c9e41aa7e7d878b7268f37917e094ef49ea9f2",
-                "reference": "31c9e41aa7e7d878b7268f37917e094ef49ea9f2",
+                "url": "https://api.github.com/repos/spatie/fractalistic/zipball/59a2e7dfbd49e58b7de7d5621c1e7365786809f9",
+                "reference": "59a2e7dfbd49e58b7de7d5621c1e7365786809f9",
+                "shasum": ""
+            },
+            "require": {
+                "league/fractal": "^0.14.0|^0.15.0",
+                "php": "^5.6|^7.0"
+            },
+            "require-dev": {
+                "illuminate/pagination": "^5.3",
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Fractalistic\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A developer friendly wrapper around Fractal",
+            "homepage": "https://github.com/spatie/fractalistic",
+            "keywords": [
+                "api",
+                "fractal",
+                "fractalistic",
+                "spatie",
+                "transform"
+            ],
+            "time": "2017-01-19 20:51:03"
+        },
+        {
+            "name": "spatie/laravel-fractal",
+            "version": "3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-fractal.git",
+                "reference": "c3e9ea034333ec87f9f4a24a5fcccd732139c0c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-fractal/zipball/c3e9ea034333ec87f9f4a24a5fcccd732139c0c6",
+                "reference": "c3e9ea034333ec87f9f4a24a5fcccd732139c0c6",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "~5.1.0|~5.2.0|~5.3.0",
-                "league/fractal": "^0.14.0",
-                "php": "^5.6|^7.0"
+                "php": "^5.6|^7.0",
+                "spatie/fractalistic": "^1.0"
             },
             "require-dev": {
                 "orchestra/testbench": "3.2.*|3.3.*",
-                "phpunit/phpunit": "^5.5",
-                "scrutinizer/ocular": "^1.1"
+                "phpunit/phpunit": "^5.7"
             },
             "type": "library",
             "autoload": {
@@ -1370,7 +1420,7 @@
                 "spatie",
                 "transform"
             ],
-            "time": "2016-12-02 08:27:53"
+            "time": "2017-01-20 19:17:57"
         },
         {
             "name": "swiftmailer/swiftmailer",
