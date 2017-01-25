@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    response(null, 302)
+        ->header('Location', env("FORCEPUSH_PROJECT_HOME", "https://forcepush.pushproject.xyz"));
 });

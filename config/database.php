@@ -6,12 +6,7 @@ $port = $db_url['port'] ?? env('DB_PORT') ?? '27017';
 $username = $db_url["user"] ?? env('DB_USER');
 $password = $db_url["pass"] ?? env('DB_PASS');
 $database = substr($db_url["path"], 1) ?? env('DB_DATABASE');
-//
-//var_dump($host);
-//var_dump($port);
-//var_dump($username);
-//var_dump($password);
-//var_dump($database);
+
 
 return [
 
