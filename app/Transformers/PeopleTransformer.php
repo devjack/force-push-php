@@ -22,7 +22,7 @@ class PeopleTransformer extends Fractal\TransformerAbstract
             "gender" => $person->gender,
             "homeworld" =>  $person->homeworld,
             "films" => array_map(function($id) {
-                return route('films', ['id'=>$id]);
+                return shove('film', ['id'=>$id]);
             }, $person->films),
             "species" => [],
             "vehicles" => [],
