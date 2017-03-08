@@ -25,7 +25,7 @@ class HttpPushMiddleware
 
         if($pushLevel >= 0) {
             $response->header("Link", $this->generatePushHeader($pushLevel));
-            $response-header("Pushed-Resources", $this->numPushed);
+            $response->header("Pushed-Resources", $this->numPushed);
         }
         return $response;
 
