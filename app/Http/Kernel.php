@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CorsAllowMiddleware;
 use App\Shove\HttpPushMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -37,6 +38,7 @@ class Kernel extends HttpKernel
             'throttle:600,1',
             'bindings',
             HttpPushMiddleware::class,
+            CorsAllowMiddleware::class,
         ],
     ];
 
