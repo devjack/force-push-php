@@ -19,12 +19,12 @@ class HttpPushMiddleware
     public function handle(Request $request, \Closure $next)
     {
         // After middleware (add links at end of middleware stack)
-        $pushLevel = $request->input("_push") ?? 0;
+        $pushLevel = $request->input("_push") ?? 1;
 
         $response = $next($request);
 
-        if($pushLevel >= 0) {
-            $response->header("Link", $this->generatePushHeader($pushLevel));
+        if($pushLevel > 0) {
+            $response->header("Link", $this->generatePushHeader($pushLevel-1));
             $response->header("Pushed-Resources", $this->numPushed);
         }
         return $response;
