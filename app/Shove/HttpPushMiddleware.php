@@ -62,13 +62,11 @@ class HttpPushMiddleware
                 return $linkValue;
             }, array_keys($pushables), $pushables);
 
-            $pushlinks = implode(',', $links);
 
             $pushLinks = (count($links) > 50) ? array_slice($links, 50) : $links;
 
             $this->numPushed = count($pushLinks);
-
-            return $pushLinks;
+            return implode(',', $pushLinks);
         }
         return "";
     }
