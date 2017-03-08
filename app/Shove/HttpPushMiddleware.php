@@ -8,6 +8,7 @@ use Illuminate\Contracts\Logging\Log;
 
 class HttpPushMiddleware
 {
+    protected $numPushed = 0;
 
     /**
      * @param Request $request
@@ -24,6 +25,7 @@ class HttpPushMiddleware
 
         if($pushLevel >= 0) {
             $response->header("Link", $this->generatePushHeader($pushLevel));
+            $response-header("Pushed-Resources", $this->numPushed);
         }
         return $response;
 
@@ -36,6 +38,8 @@ class HttpPushMiddleware
 
 
         $pushables = app('shove')->getPushables();
+
+        $pushables = (count($pushables) > 100) ? array_slice($pushables, 100) : $pushables;
 
         // Trust me - this works. I think.
         if (!empty($pushables)) {
@@ -58,7 +62,13 @@ class HttpPushMiddleware
                 return $linkValue;
             }, array_keys($pushables), $pushables);
 
-            return implode(',', $links);
+            $pushlinks = implode(',', $links);
+
+            $pushLinks = (count($links) > 50) ? array_slice($links, 50) : $links;
+
+            $this->numPushed = count($pushLinks);
+
+            return $pushLinks;
         }
         return "";
     }
